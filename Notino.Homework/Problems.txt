@@ -1,0 +1,22 @@
+﻿PROBLEMS 
+------------------------------------------------------------------------
+
+--FileStream, StreamWriter and StreamReader are unmanaged resourcesm they implements IDisposable interface.
+
+--using statement here is the best practise but also can be handled with try / finally (calling Dispose in finally) IL is the same for both cases
+
+--there is no exception handling in the code (just rethrowing once)
+
+--input variable is declared within different scope of its intended use (won't comile at all)
+
+--source and target could be made arguments for program (this would make sense if console app would be use to convert from one format to another)
+
+
+REFACTOR
+------------------------------------------------------------------------
+-- This section depends of intended use of a program
+
+
+If there is one and only use case and that is converting files from XML to JSON i'd probably create a few functions for that
+
+For more formats in futere id create an interface for getting data from source and interface for writing data to destination 
