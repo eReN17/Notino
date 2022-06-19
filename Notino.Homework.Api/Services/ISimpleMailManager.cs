@@ -2,6 +2,6 @@
 {
     public interface ISimpleMailManager
     {
-        Task SednFileTroughMail(string recipient, byte[] file);
+        Task SendFile(string recipient, string fileName, Stream fileData);
     }
 }

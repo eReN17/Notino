@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -14,4 +14,8 @@
     <ProjectReference Include="..\Notino.Converter\Notino.Converter.csproj" />
   </ItemGroup>
 
+    <ItemGroup>
+		<InternalsVisibleTo Include="Notino.Converter.Tests" />	
+    </ItemGroup>
+	
 </Project>

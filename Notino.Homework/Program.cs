@@ -1,18 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Xml.Linq;
-
-using Notino.Converter;
-using Notino.Converter.Exceptions;
+using Notino.Converter.Models;
+using Notino.Converter.Helpers;
 
 namespace Notino.Homework
 {
-    public class Document
-    {
-        public string Title { get; set; }
-        public string Text { get; set; }
-    }
-
     class Program
     {
         static void Main(string[] args)
@@ -36,15 +29,21 @@ namespace Notino.Homework
         {
             try
             {
-                new FileConverter().Convert(sourceFile, targetFile).GetAwaiter().GetResult();
-            }
-            catch(FileFormatNotSupportedException fex)
-            {
+                var documentDeserializer = new DeserializerFactory<Document>().GetDeserializer(sourceFile);
+                var documentSerializer = new SerializerFactory<Document>().GetSerializer(targetFile);
 
+                using (var sourceStream = File.OpenRead(sourceFile))
+                using (var targetStream = File.OpenWrite(targetFile))
+                {
+                    documentSerializer.SerializeData(
+                        targetStream,
+                        documentDeserializer.DeserializeData(sourceStream).GetAwaiter().GetResult()
+                    ).GetAwaiter().GetResult();
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-
+                ShowError(ex);
             }
         }
 
@@ -68,8 +67,6 @@ namespace Notino.Homework
             {
                 ShowError(ex);
             }
-
-            Console.ReadKey();
         }
 
         static async Task<string> ReadSourceFile(string sourceFile)

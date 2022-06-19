@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notino.Homework.Api", "Noti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notino.Converter", "Notino.Converter\Notino.Converter.csproj", "{D46169C3-C349-4F9F-95C7-891E15F38E69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notino.Converter.Tests", "Notino.Converter.Tests\Notino.Converter.Tests.csproj", "{927202AE-E0A9-4980-8630-8F838C9DC80F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notino.Converter.Tests", "Notino.Converter.Tests\Notino.Converter.Tests.csproj", "{927202AE-E0A9-4980-8630-8F838C9DC80F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notino.Homework", "Notino.Homework\Notino.Homework.csproj", "{1208C91D-D2F3-406E-871A-A9490C4E07ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notino.Homework", "Notino.Homework\Notino.Homework.csproj", "{1208C91D-D2F3-406E-871A-A9490C4E07ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4D3E7EEA-9B6C-4DCD-B00B-75E3F46F5CDE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +38,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{927202AE-E0A9-4980-8630-8F838C9DC80F} = {4D3E7EEA-9B6C-4DCD-B00B-75E3F46F5CDE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BC9A045A-271B-431E-931E-E9837EDBE4D5}
